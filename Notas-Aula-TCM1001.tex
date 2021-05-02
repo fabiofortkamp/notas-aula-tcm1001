@@ -1,0 +1,91 @@
+\documentclass{techreport}
+
+\titulo{Notas de Aula da Disciplina de Transferência de Calor e Massa I}
+\autor{Fábio Pinto Fortkamp}
+\local{Florianópolis}
+\data{\today}
+
+\instituicao{Universidade do Estado de Santa Catarina}
+
+% --- 
+% COVER TEMPLATE
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    
+    \center
+    {\ABNTEXchapterfont\Large\imprimirinstituicao}\\
+    {\ABNTEXchapterfont\Large Departamento de Engenharia Mecânica}\\
+\vspace*{\fill}
+    {\ABNTEXchapterfont\bfseries\LARGE
+Notas de Aula
+\vspace*{\fill}
+
+Transferência de Calor e Massa I}
+
+\vspace*{\fill}
+
+    \vspace*{\fill}
+
+    \vspace*{\fill}
+    {\ABNTEXchapterfont\large\imprimirautor}
+    \vspace*{\fill}
+
+    {\ABNTEXchapterfont\large\imprimirlocal}
+    \par
+    {\ABNTEXchapterfont\large\imprimirdata}
+
+    \vspace*{1cm}
+
+  \end{capa}
+}
+
+% ---
+% PDF SETUP
+\configurepdf
+
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[table,xcdraw]{xcolor}
+
+\begin{document}
+
+\pretextual
+% ---
+% PRINT THE COVER?
+\imprimircapa
+
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+% this puts the table of contetns in the PDF bookmarks
+%
+% with just the \tableofcontents macro, the bookmark is still produced, but it directs the PDF
+% to *below* the table of contents name
+%
+% the starred version then excludes the bookmark, and we manually add a new one, that will redirect the reader
+% to table of contents title (like "Contents")
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+% ---
+% BEGIN DOCUMENT
+\textual
+
+\include{Introducao}
+
+
+\bibliography{thermo-ref/Thermo-Foam-Ref.bib}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
